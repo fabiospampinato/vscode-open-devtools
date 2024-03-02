@@ -44,7 +44,7 @@
     "chrome"
   ],
   "dependencies": {
-    "open": "0.0.5"
+    "open": "^8.4.2"
   },
   "devDependencies": {
     "@types/vscode": "^1.87.0",

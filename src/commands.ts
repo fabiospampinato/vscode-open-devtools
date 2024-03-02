@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-import * as openPath from 'open';
+import openPath, {apps} from 'open';
 import * as vscode from 'vscode';
 
 /* MAIN */
@@ -21,7 +21,7 @@ const open = async (): Promise<void> => {
 
       if ( !devtoolUrl ) continue;
 
-      await openPath ( devtoolUrl, { app: { name: openPath.apps.chrome }, newInstance: true } );
+      await openPath ( devtoolUrl, { app: { name: apps.chrome }, newInstance: true } );
 
       return;
 
@@ -31,9 +31,9 @@ const open = async (): Promise<void> => {
 
     }
 
-    vscode.window.showErrorMessage ( 'No DevTools windows found' );
-
   }
+
+  vscode.window.showErrorMessage ( 'No DevTools windows found' );
 
 }
 
