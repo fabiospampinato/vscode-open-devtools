@@ -8,7 +8,7 @@ import * as vscode from 'vscode';
 
 const open = async (): Promise<void> => {
 
-  for ( const port of [9222, 9229, 5858] ) {
+  for ( const port of [9229, 9222, 5858] ) {
 
     try {
 
