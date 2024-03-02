@@ -6,6 +6,8 @@ import * as vscode from 'vscode';
 
 /* MAIN */
 
+//TODO: Show a QuickPick if there's more than one option instead
+
 const open = async (): Promise<void> => {
 
   for ( const port of [9229, 9222, 5858] ) {
