@@ -39,7 +39,10 @@
   "keywords": [
     "vscode",
     "vsc",
-    "extension"
+    "extension",
+    "open",
+    "devtools",
+    "chrome"
   ],
   "dependencies": {
     "open": "0.0.5"
