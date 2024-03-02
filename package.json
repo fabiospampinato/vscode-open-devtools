@@ -1,0 +1,54 @@
+{
+  "name": "vscode-open-devtools",
+  "displayName": "Open DevTools",
+  "publisher": "fabiospampinato",
+  "repository": "github:fabiospampinato/vscode-open-devtools",
+  "description": "A simple extension for opening DevTools windows listed under chrome://inspect.",
+  "icon": "resources/logo-128x128.png",
+  "version": "1.0.0",
+  "type": "module",
+  "main": "dist/index.js",
+  "contributes": {
+    "commands": [
+      {
+        "command": "openDevTools.open",
+        "title": "DevTools: Open"
+      }
+    ]
+  },
+  "scripts": {
+    "bundle:dev": "tsex bundle --external vscode --format cjs --platform node --no-declare",
+    "bundle:prod": "tsex bundle --external vscode --format cjs --platform node --minify",
+    "clean": "tsex clean",
+    "compile": "tsex compile",
+    "debug": "code --extensionDevelopmentPath $PWD --inspect-extensions 9229",
+    "package": "vsce package",
+    "package:dev": "scex -bs bundle:dev package",
+    "package:prod": "scex -bs bundle:prod package",
+    "prepublishOnly": "scex -bs clean bundle:prod",
+    "vscode:prepublish": "scex -bs clean bundle:prod",
+    "dev": "scex -bs bundle:dev debug",
+    "prod": "scex -bs bundle:prod debug"
+  },
+  "categories": [
+    "Other"
+  ],
+  "engines": {
+    "vscode": "^1.87.0"
+  },
+  "keywords": [
+    "vscode",
+    "vsc",
+    "extension"
+  ],
+  "dependencies": {
+    "open": "0.0.5"
+  },
+  "devDependencies": {
+    "@types/vscode": "^1.87.0",
+    "esbuild": "0.20.1",
+    "scex": "^1.1.0",
+    "tsex": "^3.2.0",
+    "typescript": "^5.3.3"
+  }
+}
