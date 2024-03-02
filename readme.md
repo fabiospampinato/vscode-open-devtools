@@ -19,7 +19,7 @@ ext install fabiospampinato.vscode-open-devtools
 It adds 1 command to the command palette:
 
 ```js
-DevTools: Open // Open the last DevTools window listed under chrome://inspect
+DevTools: Open // Open a DevTools window listed under chrome://inspect
 ```
 
 ## License
