@@ -20,7 +20,7 @@ const open = async (): Promise<void> => {
 
   await openPath ( devtool.url, { app: { name: apps.chrome }, newInstance: true } );
 
-}
+};
 
 /* EXPORT */
 
