@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-import * as vscode from 'vscode';
+import vscode from 'vscode';
 import type {Devtool} from './types';
 
 /* MAIN */

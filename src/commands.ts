@@ -2,7 +2,7 @@
 /* IMPORT */
 
 import openPath, {apps} from 'open';
-import * as vscode from 'vscode';
+import vscode from 'vscode';
 import {getDevtools, getDevtool} from './utils';
 
 /* MAIN */
