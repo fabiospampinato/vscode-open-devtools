@@ -1,3 +1,6 @@
+### Version 1.1.1
+- Readme: improved
+
 ### Version 1.1.0
 - Added support for multiple devtool sessions being available
 
