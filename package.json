@@ -42,7 +42,7 @@
     "chrome"
   ],
   "dependencies": {
-    "open": "^8.4.2"
+    "tiny-browser-open": "^1.0.1"
   },
   "devDependencies": {
     "@types/vscode": "^1.87.0",

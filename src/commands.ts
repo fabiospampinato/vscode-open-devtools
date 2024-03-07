@@ -1,7 +1,7 @@
 
 /* IMPORT */
 
-import openPath, {apps} from 'open';
+import openPath from 'tiny-browser-open';
 import vscode from 'vscode';
 import {getDevtools, getDevtool} from './utils';
 
@@ -18,7 +18,7 @@ const open = async (): Promise<void> => {
   if ( !devtool ) return;
   if ( !devtool.url ) return void vscode.window.showErrorMessage ( 'No valid DevTools URL found' );
 
-  await openPath ( devtool.url, { app: { name: apps.chrome }, newInstance: true } );
+  openPath ( devtool.url, { app: 'chrome' } );
 
 };
 
