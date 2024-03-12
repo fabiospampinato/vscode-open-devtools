@@ -2,7 +2,7 @@
 /* IMPORT */
 
 import {alert, openInApp} from 'vscode-extras';
-import {getDevtools, getDevtool} from './utils';
+import {getDevtool, getDevtools} from './utils';
 
 /* MAIN */
 
