@@ -1,3 +1,6 @@
+### Version 1.1.3
+- Minor internal improvements
+
 ### Version 1.1.2
 - Replaced "open" with "tiny-browser-open"
 
