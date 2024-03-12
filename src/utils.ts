@@ -1,10 +1,22 @@
 
 /* IMPORT */
 
-import vscode from 'vscode';
+import {prompt} from 'vscode-extras';
 import type {Devtool} from './types';
 
 /* MAIN */
+
+const getDevtool = async ( devtools: Devtool[] ): Promise<Devtool | undefined> => {
+
+  if ( devtools.length < 2 ) return devtools[0];
+
+  const options = devtools.map ( devtool => ({ label: devtool.title || 'Unnamed', description: devtool.description, devtool }) );
+  const option = await prompt.select ( 'Select a devtools window to open...', options );
+  const devtool = option?.devtool;
+
+  return devtool;
+
+};
 
 const getDevtools = async (): Promise<Devtool[]> => {
 
@@ -14,19 +26,24 @@ const getDevtools = async (): Promise<Devtool[]> => {
 
     try {
 
-      const response = await globalThis.fetch ( `http://127.0.0.1:${port}/json/list` );
+      const url = `http://127.0.0.1:${port}/json/list`;
+      const response = await fetch ( url );
 
       if ( !response.ok ) continue;
 
-      const devtoolsRaw = await response.json ();
+      const devtoolsList = await response.json ();
 
-      for ( const {title, description, devtoolsFrontendUrl} of devtoolsRaw ) {
+      for ( const {title, description, devtoolsFrontendUrl} of devtoolsList ) {
 
         devtools.push ({ title, description, url: devtoolsFrontendUrl });
 
       }
 
-    } catch {}
+    } catch ( error: unknown ) {
+
+      console.error ( error );
+
+    }
 
   }
 
@@ -34,19 +51,6 @@ const getDevtools = async (): Promise<Devtool[]> => {
 
 };
 
-const getDevtool = async ( devtools: Devtool[] ): Promise<Devtool | undefined> => {
-
-  if ( devtools.length === 0 ) return;
-  if ( devtools.length === 1 ) return devtools[0];
-
-  const options = devtools.map ( devtool => ({ label: devtool.title || '[No name]', description: devtool.description, devtool }) );
-  const option = await vscode.window.showQuickPick ( options );
-  const devtool = option?.devtool;
-
-  return devtool;
-
-};
-
 /* EXPORT */
 
-export {getDevtools, getDevtool};
+export {getDevtool, getDevtools};
